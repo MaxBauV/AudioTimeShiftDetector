@@ -90,7 +90,7 @@ The reference is an analog loopback. The measurement file is played through each
 
 **Example:**
 
-![alt text](img/Multi-Way.drawio.png "Title")
+<img src="img/Multi-Way.drawio.png" alt="drawing" width="70%"/>
 
 1) **Tweeter:**
     - Play the measurement file to the tweeter (Out Channel 1) and the loopback (Out Channel 4).
