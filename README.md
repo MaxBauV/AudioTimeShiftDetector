@@ -1,9 +1,9 @@
 # Audio Time Shift Detector
 
 Analyze time shift between several `.wav` files.  
-Returns time shift in sample points **and** milliseconds between all given `.wav` files.
+Returns time shift in sample points and milliseconds between all given `.wav` files.
 
-The time shift is **precisely** calculated by utilizing a special measurement file and **cross-correlation**.
+The time shift is precisely calculated by utilizing a special measurement file and cross-correlation.
 
 ## Table of Contents
 
@@ -16,34 +16,33 @@ The time shift is **precisely** calculated by utilizing a special measurement fi
   - [Use-cases / Application Examples](#use-cases--application-examples)
     - [Time-align audio tracks (e.g. multi-mic setup to avoid phase issues)](#time-align-audio-tracks-eg-multi-mic-setup-to-avoid-phase-issues)
     - [Time shift measurement to time-align multi-speaker setups](#time-shift-measurement-to-time-align-multi-speaker-setups)
-      - [Example:](#example)
   - [Testing](#testing)
   - [License](#license)
 
 ## Usage
 
 Provide audio files in the `.wav` format within a folder.  
-**Ensure** that the sample rate of all audio files matches.
+Ensure that the sample rate of all audio files matches.
 
 ### Supported File Types
 
-This script supports a wide range of file types.
+This script supports `.wav` files with a wide range of sample rates and bit depths:
 
-Tested file types:
+Tested sample rates and bit depths:
 - Sample Rates:
     - 8000, 11025, 16000, 22050, 32000, 44100, 48000, 88200, 96000, 176400, 192000
 - Bit Depths:
     - PCM: 8, 12, 24, 32
     - Floating Point: 32, 64
 
-The script supports mono and stereo files. **In the case of stereo files**, ensure that both channels contain the same content; otherwise, the results may be incorrect, and an error will be thrown.
+The script supports mono and stereo files. In the case of stereo files, ensure that both channels contain the same content. Otherwise, the results may be incorrect, and an error will be thrown.
 
 
 ### Script Execution <div id='script_execution' />
 
 ```atsDetect.py '/path/to/folder'```
 
-In ```dist``` you can find a compiled version for macOS. It was compiled using pyinstaller. Execute it as follows:
+In `dist` you can find a compiled version for macOS (arm64). It was compiled using pyinstaller. Execute it as follows:
 
 ```atsDetects '/path/to/folder'```
 
@@ -53,7 +52,7 @@ Compiled versions for Linux & Windows are not planned.
 
 Dirac impulses are sometimes used for time-alignment measurements.  
 However, alterations in the frequency spectrum can cause signals to smear.  
-For example, a high-passed Dirac impulse becomes highly altered and is, therefore, unusable for many scenarios.
+For example, a high-passed Dirac impulse becomes highly smeared and is, therefore, not recommended for this scenarios.
 
 Sine wave sweeps can be another option. However, in cases where we want to measure time alignment between a subwoofer and a tweeter, there may be no frequency overlap between both signals, making sweeps ineffective.
 
@@ -88,7 +87,7 @@ To measure the time delay between the speakers, it's crucial to have a measureme
 The reference is an analog loopback. The measurement file is played through each speaker one at a time. Both the measurement microphone signal (optimally placed at the listener’s position) and the reference signal (loopback) are recorded for each run.
 
 
-#### Example:
+**Example:**
 
 ![alt text](img/Multi-Way.drawio.png "Title")
 
