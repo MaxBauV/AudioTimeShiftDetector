@@ -46,18 +46,18 @@ In `dist` you can find a compiled version for macOS (arm64). It was compiled usi
 
 ```atsDetects '/path/to/folder'```
 
-Compiled versions for Linux & Windows are not planned.
+Compiled versions for Linux & Windows are not planned, but considered when requested.
 
 ## Measurement File
 
 Dirac impulses are sometimes used for time-alignment measurements.  
 However, alterations in the frequency spectrum can cause signals to smear.  
-For example, a low-passed Dirac impulse becomes highly smeared and is, therefore, not recommended for this scenarios.
+For example, a low-passed Dirac impulse becomes highly smeared and is, therefore, not recommended for precise time shift measurements.
 
 Sine wave sweeps can be another option. However, in cases where we want to measure time alignment between a subwoofer and a tweeter, there may be no frequency overlap between both signals, making sweeps ineffective.
 
-White noise contains all frequencies and is optimal for this type of measurement.  
-For better results, the white noise signal is pulsed. A short sequence of noise is followed by a short sequence of silence. This noise-silence sequence is repeated 6 times to form the test signal. The length of the noise increases logarithmically, while the silence decreases logarithmically in each of the 6 intervals, allowing for better correlation between the reference signal and the measured signal.
+White noise contains all frequencies and is therefore useful for this type of measurement.  
+The measurement file uses bursts of white noise. (A short sequence of noise is followed by a short sequence of silence.) This noise-silence sequence is repeated 6 times to form the test signal. The length of the noise increases logarithmically, while the silence decreases logarithmically in each of the 6 intervals. This approach allows for better correlation between the reference signal and the measured signal.
 
 The measurement file, `pulsedNoise.wav`, can be found in the `resources` folder.
 
@@ -72,7 +72,7 @@ The script used to generate this file, `TestFileGenerator.py`, is also available
 A snare drum is recorded using two microphones. Both microphone recordings need to be time-aligned (phase-aligned).
 
 Steps:
-1. Check that the phase is not inverted.
+1. Ensure that the phase of the recordings is not inverted (i.e., both waveforms should move in the same direction).
 2. Analyze both recordings with the script.
 3. Adjust the timing of one of the tracks inside your DAW.
 
@@ -82,9 +82,12 @@ In this example, we use the Audio Time Shift Detector to time-align a multi-spea
 
 This is particularly useful when you can set a delay for each individual speaker (e.g., via DSP).
 
-To measure the time delay between the speakers, it's crucial to have a measurement reference.
+To measure the time delay between the speakers, it's crucial to use a reference measurement.
 
-The reference is an analog loopback. The measurement file is played through each speaker one at a time. Both the measurement microphone signal (optimally placed at the listener’s position) and the reference signal (loopback) are recorded for each run.
+The reference is an analog loopback. A digital loopback is also possible but does not account for the time required for A/D and D/A conversion. However, this is usually not an issue if the goal is solely to achieve time alignment between the speakers.
+
+The measurement file is played through each speaker one at a time. For each run, both the measurement microphone signal (ideally placed at the listener’s position) and the reference signal (loopback) are recorded.
+
 
 
 **Example:**
