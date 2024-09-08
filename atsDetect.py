@@ -4,7 +4,6 @@ import os
 import numpy as np
 import soundfile as sf
 from scipy.signal import correlate
-import matplotlib.pyplot as plt
 import argparse
 
 def calculate_time_shift(signal1, signal2, sample_rate):

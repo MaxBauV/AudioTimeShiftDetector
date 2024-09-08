@@ -23,7 +23,9 @@ Tested file types:
     - PCM: 8, 12, 24, 32
     - FP: 32, 64
 
-The script supports mono and stereo files. In case you want to use stereo files, make sure that both channels have the same information, otherwise the results may be wrong.
+The script supports mono and stereo files. In case you want to use stereo files, make sure that both channels have the same content, otherwise the results may be wrong and therefore an error is thrown.
+
+### Script Execution
 
 ```atsDetect.py '/path/to/folder'```
 
