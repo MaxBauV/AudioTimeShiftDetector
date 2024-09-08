@@ -36,6 +36,10 @@ def calculate_time_shift(signal1, signal2, sample_rate):
     # Compute lag
     lag = max_corr_index - mid_point
 
+    # Adjust lag to be positive or zero
+    if lag < 0:
+        lag = -lag
+
     return lag
 
 def check_stereo_file(signal):
