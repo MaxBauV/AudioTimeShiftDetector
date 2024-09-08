@@ -50,7 +50,7 @@ Compiled versions for Linux & Windows are not planned.
 
 Dirac impulses are sometimes used for time-alignment measurements.  
 However, alterations in the frequency spectrum can cause signals to smear.  
-For example, a high-passed Dirac impulse becomes highly smeared and is, therefore, not recommended for this scenarios.
+For example, a low-passed Dirac impulse becomes highly smeared and is, therefore, not recommended for this scenarios.
 
 Sine wave sweeps can be another option. However, in cases where we want to measure time alignment between a subwoofer and a tweeter, there may be no frequency overlap between both signals, making sweeps ineffective.
 
