@@ -86,6 +86,18 @@ def process_audio_folder(folder_path):
 
     print (lags)
 
+    # Find the entry with the shortest lag and its index
+    if lags:
+        shortest_lag_index = min(range(len(lags)), key=lambda i: lags[i]['lag_samples'])
+        shortest_lag_entry = lags[shortest_lag_index]
+        print(f"\nEntry with the shortest lag (Index {shortest_lag_index}):")
+        print(f"File 1: {shortest_lag_entry['file1']}")
+        print(f"File 2: {shortest_lag_entry['file2']}")
+        print(f"Lag (samples): {shortest_lag_entry['lag_samples']}")
+        print(f"Lag (ms): {(shortest_lag_entry['lag_samples'] / sample_rate * 1000):.4f} ms")
+    else:
+        print("No lags calculated.")
+
 def main():
     parser = argparse.ArgumentParser(description='Process audio files to calculate time shifts using cross-correlation.')
     parser.add_argument('folder', type=str, help='Path to the folder containing audio files.')
