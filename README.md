@@ -38,6 +38,8 @@ The script supports mono and stereo files. In the case of stereo files, ensure t
 
 ### Script Execution <div id='script_execution' />
 
+If you are using Python execute the command as follows:
+
 ```atsDetect.py '/path/to/folder'```
 
 In `dist` you can find a compiled version for macOS (arm64). It was compiled using pyinstaller. Execute it as follows:
