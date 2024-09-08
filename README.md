@@ -18,6 +18,7 @@ The time shift is precisely calculated by utilizing a special measurement file a
     - [Time shift measurement to time-align multi-speaker setups](#time-shift-measurement-to-time-align-multi-speaker-setups)
   - [Testing](#testing)
   - [License](#license)
+  - [Donation](#donation)
 
 ## Usage
 
@@ -115,3 +116,7 @@ In the `testing` directory, you can find the Reaper project I used for testing &
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Donation
+
+If you find this script useful, consider paying me a coffee.
