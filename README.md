@@ -26,7 +26,7 @@ Ensure that the sample rate of all audio files matches.
 
 This script supports `.wav` files with a wide range of sample rates and bit depths:
 
-Tested sample rates and bit depths:
+Tested sample rates and bit depths
 - Sample Rates:
     - 8000, 11025, 16000, 22050, 32000, 44100, 48000, 88200, 96000, 176400, 192000
 - Bit Depths:
@@ -106,7 +106,7 @@ The reference is an analog loopback. The measurement file is played through each
 
 In the `testing` directory, you can find the Reaper project I used for testing & verification.
 
-- Track 1 contains the unchanged test file.
+- Track 1 contains the unchanged measurement file.
 - Tracks 2 & 3 contain copies of that file, but with applied filters to mimic a frequency response change (e.g., simulating a speaker crossover system). If the reaFIR filter's edit mode is set to `precise`, it does not affect the phase.
 - You can experiment with other EQs and filters to observe how the resulting phase shift introduces an additional time shift.
 
