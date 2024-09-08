@@ -32,16 +32,27 @@ def calculate_time_shift(signal1, signal2, sample_rate):
     mid_point = (correlation_length - 1) // 2
 
     # Index of maximum correlation value
-    max_corr_index = np.argmax(np.abs(abs(correlation)))
+    max_corr_index = np.argmax(np.abs(correlation))
 
     # Compute lag
     lag = max_corr_index - mid_point
 
-    # Adjust lag to be positive or zero
-    if lag < 0:
-        lag = -lag
-
     return lag
+
+def check_stereo_file(signal):
+    """
+    Check if a stereo file has identical information in both channels.
+
+    Parameters:
+    signal (numpy array): The audio signal.
+
+    Raises:
+    ValueError: If the stereo channels do not contain the same information.
+    """
+    if signal.ndim == 2 and signal.shape[1] == 2:
+        channel1, channel2 = signal[:, 0], signal[:, 1]
+        if not np.allclose(channel1, channel2, atol=1e-5):  # Adjust the tolerance if needed
+            raise ValueError("Stereo channels do not contain identical information.")
 
 def process_audio_folder(folder_path):
     """
@@ -60,6 +71,13 @@ def process_audio_folder(folder_path):
     for audio_file in audio_files:
         file_path = os.path.join(folder_path, audio_file)
         signal, sr = sf.read(file_path)
+        
+        # Check if stereo channels contain identical information
+        try:
+            check_stereo_file(signal)
+        except ValueError as e:
+            print(f"Error with file {audio_file}: {e}. Skipping.")
+            continue
         
         # Convert to mono if stereo
         if signal.ndim > 1:
