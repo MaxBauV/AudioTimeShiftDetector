@@ -5,20 +5,17 @@ Returns time shift in sample points and milliseconds between all given `.wav` fi
 
 The time shift is precisely calculated by utilizing a special measurement file and cross-correlation.
 
-## Table of Contents
-
-- [Audio Time Shift Detector](#audio-time-shift-detector)
-  - [Table of Contents](#table-of-contents)
-  - [Usage](#usage)
-    - [Supported File Types](#supported-file-types)
-    - [Script Execution ](#script-execution-)
-  - [Measurement File](#measurement-file)
-  - [Use-cases / Application Examples](#use-cases--application-examples)
-    - [Time-align audio tracks (e.g. multi-mic setup to avoid phase issues)](#time-align-audio-tracks-eg-multi-mic-setup-to-avoid-phase-issues)
-    - [Time shift measurement to time-align multi-speaker setups](#time-shift-measurement-to-time-align-multi-speaker-setups)
-  - [Testing](#testing)
-  - [License](#license)
-  - [Donation](#donation)
+## Table of Content <!-- omit in toc -->
+- [Usage](#usage)
+  - [Supported File Types](#supported-file-types)
+  - [Script Execution ](#script-execution-)
+- [Measurement File](#measurement-file)
+- [Use-cases / Application Examples](#use-cases--application-examples)
+  - [Time-align audio tracks (e.g. multi-mic setup to avoid phase issues)](#time-align-audio-tracks-eg-multi-mic-setup-to-avoid-phase-issues)
+  - [Time shift measurement to time-align multi-speaker setups](#time-shift-measurement-to-time-align-multi-speaker-set$$ups)
+- [Testing](#testing)
+- [License](#license)
+- [Donation](#donation)
 
 ## Usage
 
@@ -62,7 +59,7 @@ For better results, the white noise signal is pulsed. A short sequence of noise 
 
 The measurement file, `pulsedNoise.wav`, can be found in the `resources` folder.
 
-The script used to generate this file, `TestFileGenerator`, is also available in the same directory. If you need to modify it for specific applications, feel free to contact me.
+The script used to generate this file, `TestFileGenerator.py`, is also available in the same directory. If you need to modify it for specific applications, please contact me as I'm interested in limitations.
 
 ## Use-cases / Application Examples
 
