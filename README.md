@@ -120,3 +120,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Donation
 
 If you find this script useful, consider paying me a coffee.
+
+https://www.paypal.com/donate/?hosted_button_id=H8TJ5JLWUXYT8
