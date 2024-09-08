@@ -92,7 +92,7 @@ The measurement file is played through each speaker one at a time. For each run,
 
 **Example:**
 
-<img src="img/Multi-Way.drawio.png" alt="drawing" width="70%"/>
+<img src="img/multi-speaker.drawio.png" alt="drawing" width="70%"/>
 
 1) **Tweeter:**
     - Play the measurement file to the tweeter (Out Channel 1) and the loopback (Out Channel 4).
